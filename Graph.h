@@ -66,11 +66,12 @@ public:
     */
     void bfs(int start)
     {
-        // Create 2 queues to store all the vertices of the next level
-        queue<int> next;           // Store all the vertices of the next level
-        next.push(start);          // Add the starting vertex into the queue
+        // Create variables
+        queue<int> next;              // Store all the vertices of the next level
+        vector<int> visited;          // Store all the visited vertices
+        next.push(start);             // Add the starting vertex into the queue
 
-       // Iterate and display all the vertices
+        // Iterate and display all the vertices
         while (next.size() > 0)
         {
             // Get the front element
@@ -79,11 +80,22 @@ public:
             // Iterate and find all the next level vertices of the current vertex
             for (int i = 0; i < adjList.at(vertex).size(); i++)
             {
-                next.push(adjList.at(vertex).);
+                // Add the vertex to the end of the list
+                next.push(adjList.at(vertex).at(i).first);
             }
-        }
 
-        // Display all the neighbors of start
+            // If the vertex was already visited
+            if (visited.find(vertex))
+            {
+
+            }
+            
+            // Display the vertex
+            cout << vertex << " ";
+
+            // Remove the first vertex of the queue
+            next.pop();
+        }
     }
 
     /*
