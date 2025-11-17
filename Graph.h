@@ -67,22 +67,20 @@ public:
     void bfs(int start)
     {
         // Create 2 queues to store all the vertices of the next level
-        queue<int> next;              // Store all the vertices of the next level
-        queue<int> visited;           // Store all the visited vertices
-        visited.push(start);          // Add the starting vertex into the queue
+        queue<int> next;           // Store all the vertices of the next level
+        next.push(start);          // Add the starting vertex into the queue
 
-        // Display the starting vertex
-        cout << start << " ";
-
-        // Iterate and display the route
-        for (int i = 0; i < adjList.size(); i++)
+       // Iterate and display all the vertices
+        while (next.size() > 0)
         {
+            // Get the front element
+            int vertex = next.front();
 
-        }
-        for (int i = 0; i < adjList.at(start).size(); i++)
-        {
-            // Push the adjacent vertex into the queue
-            next.push(adjList.at(start).at(i).first);
+            // Iterate and find all the next level vertices of the current vertex
+            for (int i = 0; i < adjList.at(vertex).size(); i++)
+            {
+                next.push(adjList.at(vertex).);
+            }
         }
 
         // Display all the neighbors of start
