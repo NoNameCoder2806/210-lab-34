@@ -96,6 +96,12 @@ public:
     */
     void bfs(int start)
     {
+        // Display a header
+        cout << " --- Visitor Deep Exploration Route (DFS) from " << locationNames.at(start) << " (" << start << ") --- " << endl;
+        cout << "Purpose: Following a visitor who chooses one path and continues exploring" << endl;
+        cout << "the deepest connected attractions before backtracking." << endl;
+        cout << "=========================================================================" << endl;
+
         // Create a queue and a vector
         queue<int> next;                            // Store all the vertices of the next level
         vector<bool> visited(SIZE, false);          // Store all the vertices and whether they were visited
@@ -111,13 +117,18 @@ public:
             // Remove the first vertex of the queue
             next.pop();
 
-            // Display the vertex
-            cout << vertex << " ";
+            // Otherwise, display the vertex
+            cout << "Arrived at: " << locationNames.at(vertex) << " (" << vertex << ")" << endl;
 
             // Iterate and find all the next level vertices of the current vertex
             for (int i = 0; i < adjList.at(vertex).size(); i++)
             {
                 int neighbor = adjList.at(vertex).at(i).first;
+
+                // Announce nearby attractions (even if visited later)
+                cout << " --> Nearby attractions to visit next: "
+                    << locationNames.at(neighbor)
+                    << " (" << neighbor << ")" << endl;
 
                 // Check whether the vertex was previously visited
                 if (visited.at(neighbor))
@@ -186,7 +197,7 @@ public:
                 }
 
                 // Display the vertex
-                cout << " --> Exploring ";
+                cout << " --> Possible route to: ";
                 cout << locationNames.at(neighbor) << " (" << neighbor << ") - (" << distance << "m) ";
                 cout << endl;
 
