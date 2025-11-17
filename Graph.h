@@ -25,11 +25,20 @@ public:
     // Create a vector of vectors of Pairs to represent an adjacency list
     vector<vector<Pair>> adjList; // The list of adjacent vertices of the vertices
 
-    // Create a vector to store the vertices location names
-    vector<string> locations = {
-        "Main Gate",
-        "Visitor Center",
-        "T-Rex Paddock",
+    // Create a vector to store the vertex names for Jurassic Park locations
+    vector<string> locationNames = {
+        "Main Gate / Entrance",                // 0
+        "Visitor Center",                      // 1
+        "T-Rex Paddock",                       // 2
+        "Velociraptor Pen",                    // 3
+        "Dilophosaurus Enclosure",             // 4
+        "Brachiosaurus Feeding Area",          // 5
+        "Gyrosphere Track",                    // 6
+        "Maintenance Shed",                    // 7
+        "Jurassic Park Lagoon",                // 8
+        "Helipad",                             // 9
+        "Research Lab",                        // 10
+        "Visitor Camps / Rest Areas"           // 11
     };
 
     // Graph Constructor
@@ -55,12 +64,22 @@ public:
     // Print the graph's adjacency list
     void printGraph()
     {
-        cout << "Graph's adjacency list:" << endl;
+        // Display a header
+        cout << "Jurassic Park Road Map:" << endl;
+        cout << "=======================" << endl;
+
+        // Display all the vertices / locations
         for (int i = 0; i < adjList.size(); i++)
         {
-            cout << i << " --> ";
+            // Display the sources
+            cout << locationNames.at(i) << "(" << i << "):" << endl;
+    
+            // Display all the destinations and weights
             for (Pair v : adjList[i])
-                cout << "(" << v.first << ", " << v.second << ") ";
+            {
+                cout << " --> ";
+                cout << "Pathway to " << locationNames.at(i) << "(" << v.first << ", " << v.second << ") ";
+            }
             cout << endl;
         }
     }
