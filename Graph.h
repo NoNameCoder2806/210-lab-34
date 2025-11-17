@@ -6,6 +6,8 @@
 // Libraries
 #include <iostream>
 #include <vector>
+#include <queue>
+#include <stack>
 #include "Edge.h"
 using namespace std;
 
@@ -53,5 +55,39 @@ public:
                 cout << "(" << v.first << ", " << v.second << ") ";
             cout << endl;
         }
+    }
+
+    /*
+        bfs()
+        Breadth first search function
+        Arguments:
+            - start: the starting vertex
+        Return: none
+    */
+    void bfs(int start)
+    {
+        // Display the starting vertex
+        cout << start << " ";
+
+        // Create a queue to store all the vertices of the next level
+        queue<int> next;
+        for (int i = 0; i < adjList.at(start).size(); i++)
+        {
+            next.push();
+        }
+
+        // Display all the neighbors of start
+    }
+
+    /*
+        dfs()
+        Depth first search function
+        Arguments:
+            - start: the starting vertex
+        Return: none
+    */
+    void dfs(int start)
+    {
+        // 
     }
 };
