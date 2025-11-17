@@ -98,7 +98,7 @@ public:
 
                 // Otherwise, add the vertex to the end of the list
                 next.push(neighbor);
-                visited.at(neighbor) = true; // Mark the vertex as visited when enqueued
+                visited.at(neighbor) = true;          // Mark the vertex as visited when enqueued
             }
         }
     }
@@ -122,23 +122,34 @@ public:
         {
             // Get the top element
             int vertex = next.top();
-            visited.at(vertex) = true;           // Mark the vertex as visited
 
             // Pop the top element from the stack
             next.pop();
+
+            // Skip if the vertex was already visited
+            if (visited.at(vertex))
+            {
+                continue;
+            }
+
+            // Otherwise, display the vertex
+            cout << vertex << " ";
+            visited.at(vertex) = true;           // Mark the vertex as visited
             
             // Iterate and get the next vertices
             for (int i = 0; i < adjList.at(vertex).size(); i++)
             {
-                // If the vertex was previously visited
-                if (visited.at(adjList.at(vertex).at(i).first))
+                int neighbor = adjList.at(vertex).at(i).first;
+
+                // Check whether the vertex was previously visited
+                if (visited.at(neighbor))
                 {
-                    // Ignore the vertex
+                    // Ignore and don't add to the stack
                     continue;
                 }
-                
-                // Add the vertices into the stack
-                next.push(adjList.at(vertex).at(i).first);
+
+                // Otherwise, add the vertex to the end of the list
+                next.push(neighbor);
             }
         }
     }
