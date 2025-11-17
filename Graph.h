@@ -97,10 +97,10 @@ public:
     void bfs(int start)
     {
         // Display a header
-        cout << " --- Visitor Deep Exploration Route (DFS) from " << locationNames.at(start) << " (" << start << ") --- " << endl;
-        cout << "Purpose: Following a visitor who chooses one path and continues exploring" << endl;
-        cout << "the deepest connected attractions before backtracking." << endl;
-        cout << "=========================================================================" << endl;
+        cout << " --- Visitor Layered Exploration Route (BFS) from " << locationNames.at(start) << " (" << start << ") --- " << endl;
+        cout << "Purpose: Visiting all nearby attractions level by level before moving" << endl;
+        cout << "deeper into the park." << endl;
+        cout << "===========================================================================" << endl;
 
         // Create a queue and a vector
         queue<int> next;                            // Store all the vertices of the next level
@@ -124,11 +124,12 @@ public:
             for (int i = 0; i < adjList.at(vertex).size(); i++)
             {
                 int neighbor = adjList.at(vertex).at(i).first;
+                int distance = adjList.at(vertex).at(i).second;
 
                 // Announce nearby attractions (even if visited later)
-                cout << " --> Nearby attractions to visit next: "
-                    << locationNames.at(neighbor)
-                    << " (" << neighbor << ")" << endl;
+                cout << " --> Nearby attractions: ";
+                cout << locationNames.at(neighbor) << " (" << neighbor << ") - (" << distance << "m)";
+                cout << endl;
 
                 // Check whether the vertex was previously visited
                 if (visited.at(neighbor))
@@ -157,7 +158,7 @@ public:
         cout << " --- Visitor Deep Exploration Route (DFS) from " << locationNames.at(start) << " (" << start << ") --- " << endl;
         cout << "Purpose: Following a visitor who chooses one path and continues exploring" << endl;
         cout << "the deepest connected attractions before backtracking." << endl;
-        cout << "=========================================================================" << endl;
+        cout << "===========================================================================" << endl;
 
         // Create a stack and a vector
         stack<int> next;                            // Store all the vertices of the next level
@@ -198,7 +199,7 @@ public:
 
                 // Display the vertex
                 cout << " --> Possible route to: ";
-                cout << locationNames.at(neighbor) << " (" << neighbor << ") - (" << distance << "m) ";
+                cout << locationNames.at(neighbor) << " (" << neighbor << ") - (" << distance << "m)";
                 cout << endl;
 
                 // Otherwise, add the vertex to the end of the list

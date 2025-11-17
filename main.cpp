@@ -46,7 +46,6 @@ int main()
     cout << endl;
 
     // BFS implementation
-    cout << "BFS starting from vertex " << start << ": " << endl;
     graph.bfs(start);
     cout << endl;
 
