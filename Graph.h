@@ -73,7 +73,7 @@ public:
         visited.at(start) = true;                   // Mark the starting vertex as visited immediately
 
         // Iterate and display all the vertices
-        while (next.size() > 0)
+        while (!next.empty())
         {
             // Get the front element
             int vertex = next.front();
@@ -116,8 +116,30 @@ public:
         stack<int> next;                            // Store all the vertices of the next level
         vector<bool> visited(SIZE, false);          // Store all the vertices and whether they were visited
         next.push(start);                           // Add the starting vertex into the queue
-        visited.at(start) = true;                   // Mark the starting vertex as visited immediately
 
+        // Iterate and display all the vertices
+        while (!next.empty())
+        {
+            // Get the top element
+            int vertex = next.top();
+            visited.at(vertex) = true;           // Mark the vertex as visited
 
+            // Pop the top element from the stack
+            next.pop();
+            
+            // Iterate and get the next vertices
+            for (int i = 0; i < adjList.at(vertex).size(); i++)
+            {
+                // If the vertex was previously visited
+                if (visited.at(adjList.at(vertex).at(i).first))
+                {
+                    // Ignore the vertex
+                    continue;
+                }
+                
+                // Add the vertices into the stack
+                next.push(adjList.at(vertex).at(i).first);
+            }
+        }
     }
 };
