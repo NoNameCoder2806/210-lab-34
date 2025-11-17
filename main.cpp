@@ -30,6 +30,19 @@ int main()
 
     // Prints adjacency list representation of graph
     graph.printGraph();
+    
+    // Create a starting vertex
+    int start = 0;
+
+    // DFS implementation
+    cout << "DFS starting from vertex " << start << ": " << endl;
+    graph.dfs(start);
+    cout << endl;
+
+    // BFS implementation
+    cout << "BFS starting from vertex " << start << ": " << endl;
+    graph.bfs(start);
+    cout << endl;
 
     return 0;
 }
