@@ -12,7 +12,7 @@
 using namespace std;
 
 // Constants
-const int SIZE = 5;
+const int SIZE = 12;
 
 // Creates alias 'Pair' for the pair<int, int> data type
 typedef pair<int, int> Pair; // Adjacent vertex, weight
