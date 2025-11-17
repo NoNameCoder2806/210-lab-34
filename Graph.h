@@ -15,14 +15,14 @@ using namespace std;
 const int SIZE = 7;
 
 // Creates alias 'Pair' for the pair<int, int> data type
-typedef pair<int, int> Pair;
+typedef pair<int, int> Pair;          // Adjacent vertex, weight
 
 // Graph class
 class Graph
 {
 public:
     // Create a vector of vectors of Pairs to represent an adjacency list
-    vector<vector<Pair>> adjList;
+    vector<vector<Pair>> adjList;          // The list of adjacent vertices of the vertices
 
     // Graph Constructor
     Graph(vector<Edge> const &edges)
@@ -66,14 +66,23 @@ public:
     */
     void bfs(int start)
     {
+        // Create 2 queues to store all the vertices of the next level
+        queue<int> next;              // Store all the vertices of the next level
+        queue<int> visited;           // Store all the visited vertices
+        visited.push(start);          // Add the starting vertex into the queue
+
         // Display the starting vertex
         cout << start << " ";
 
-        // Create a queue to store all the vertices of the next level
-        queue<int> next;
+        // Iterate and display the route
+        for (int i = 0; i < adjList.size(); i++)
+        {
+
+        }
         for (int i = 0; i < adjList.at(start).size(); i++)
         {
-            next.push();
+            // Push the adjacent vertex into the queue
+            next.push(adjList.at(start).at(i).first);
         }
 
         // Display all the neighbors of start

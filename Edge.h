@@ -12,5 +12,5 @@ struct Edge
 {
     int src;             // The source vertex
     int dest;            // The destination vertex
-    int weight;          // The weigth of the path
+    int weight;          // The weight of the path
 };
