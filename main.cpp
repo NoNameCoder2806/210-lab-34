@@ -14,12 +14,12 @@ int main()
     // Creates a vector of graph edges / weights
     vector<Edge> edges = {
         // (x, y, w) —> edge from x to y having weight w
-        {0, 2, 8},
-        {2, 6, 2},
-        {5, 6, 6},
-        {4, 5, 9},
-        {2, 4, 4},
-        {2, 5, 5}
+        {0, 1, 8},
+        {1, 4, 2},
+        {3, 4, 6},
+        {2, 3, 9},
+        {1, 2, 4},
+        {1, 3, 5}
     };
 
     // Creates graph
