@@ -15,14 +15,14 @@ using namespace std;
 const int SIZE = 7;
 
 // Creates alias 'Pair' for the pair<int, int> data type
-typedef pair<int, int> Pair;          // Adjacent vertex, weight
+typedef pair<int, int> Pair; // Adjacent vertex, weight
 
 // Graph class
 class Graph
 {
 public:
     // Create a vector of vectors of Pairs to represent an adjacency list
-    vector<vector<Pair>> adjList;          // The list of adjacent vertices of the vertices
+    vector<vector<Pair>> adjList; // The list of adjacent vertices of the vertices
 
     // Graph Constructor
     Graph(vector<Edge> const &edges)
@@ -67,9 +67,10 @@ public:
     void bfs(int start)
     {
         // Create variables
-        queue<int> next;              // Store all the vertices of the next level
-        vector<int> visited;          // Store all the visited vertices
-        next.push(start);             // Add the starting vertex into the queue
+        queue<int> next;                            // Store all the vertices of the next level
+        vector<bool> visited(SIZE, false);          // Store all the vertices and whether they were visited
+        next.push(start);                           // Add the starting vertex into the queue
+        visited.at(start) = true;                   // Mark the starting vertex as visited immediately
 
         // Iterate and display all the vertices
         while (next.size() > 0)
@@ -77,24 +78,28 @@ public:
             // Get the front element
             int vertex = next.front();
 
-            // Iterate and find all the next level vertices of the current vertex
-            for (int i = 0; i < adjList.at(vertex).size(); i++)
-            {
-                // Add the vertex to the end of the list
-                next.push(adjList.at(vertex).at(i).first);
-            }
+            // Remove the first vertex of the queue
+            next.pop();
 
-            // If the vertex was already visited
-            if (visited.find(vertex))
-            {
-
-            }
-            
             // Display the vertex
             cout << vertex << " ";
 
-            // Remove the first vertex of the queue
-            next.pop();
+            // Iterate and find all the next level vertices of the current vertex
+            for (int i = 0; i < adjList.at(vertex).size(); i++)
+            {
+                int neighbor = adjList.at(vertex).at(i).first;
+
+                // Check whether the vertex was previously visited
+                if (visited.at(neighbor))
+                {
+                    // Ignore and don't add to the queue
+                    continue;
+                }
+
+                // Otherwise, add the vertex to the end of the list
+                next.push(neighbor);
+                visited.at(neighbor) = true; // Mark the vertex as visited when enqueued
+            }
         }
     }
 
@@ -107,6 +112,6 @@ public:
     */
     void dfs(int start)
     {
-        // 
+        //
     }
 };
