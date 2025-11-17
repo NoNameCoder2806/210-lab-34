@@ -66,7 +66,7 @@ public:
     */
     void bfs(int start)
     {
-        // Create variables
+        // Create a queue and a vector
         queue<int> next;                            // Store all the vertices of the next level
         vector<bool> visited(SIZE, false);          // Store all the vertices and whether they were visited
         next.push(start);                           // Add the starting vertex into the queue
@@ -112,6 +112,12 @@ public:
     */
     void dfs(int start)
     {
-        //
+        // Create a stack and a vector
+        stack<int> next;                            // Store all the vertices of the next level
+        vector<bool> visited(SIZE, false);          // Store all the vertices and whether they were visited
+        next.push(start);                           // Add the starting vertex into the queue
+        visited.at(start) = true;                   // Mark the starting vertex as visited immediately
+
+
     }
 };
