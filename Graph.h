@@ -142,6 +142,12 @@ public:
     */
     void dfs(int start)
     {
+        // Display a header
+        cout << " --- Visitor Deep Exploration Route (DFS) from " << locationNames.at(start) << " (" << start << ") --- " << endl;
+        cout << "Purpose: Following a visitor who chooses one path and continues exploring" << endl;
+        cout << "the deepest connected attractions before backtracking." << endl;
+        cout << "=========================================================================" << endl;
+
         // Create a stack and a vector
         stack<int> next;                            // Store all the vertices of the next level
         vector<bool> visited(SIZE, false);          // Store all the vertices and whether they were visited
@@ -163,13 +169,14 @@ public:
             }
 
             // Otherwise, display the vertex
-            cout << vertex << " ";
+            cout << "Arrived at: " << locationNames.at(vertex) << " (" << vertex << ")" << endl;
             visited.at(vertex) = true;           // Mark the vertex as visited
             
             // Iterate and get the next vertices
             for (int i = 0; i < adjList.at(vertex).size(); i++)
             {
                 int neighbor = adjList.at(vertex).at(i).first;
+                int distance = adjList.at(vertex).at(i).second;
 
                 // Check whether the vertex was previously visited
                 if (visited.at(neighbor))
@@ -177,6 +184,11 @@ public:
                     // Ignore and don't add to the stack
                     continue;
                 }
+
+                // Display the vertex
+                cout << " --> Exploring ";
+                cout << locationNames.at(neighbor) << " (" << neighbor << ") - (" << distance << "m) ";
+                cout << endl;
 
                 // Otherwise, add the vertex to the end of the list
                 next.push(neighbor);

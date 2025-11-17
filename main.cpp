@@ -42,7 +42,6 @@ int main()
     int start = 0;
 
     // DFS implementation
-    cout << "DFS starting from vertex " << start << ": " << endl;
     graph.dfs(start);
     cout << endl;
 
