@@ -72,16 +72,19 @@ public:
         for (int i = 0; i < adjList.size(); i++)
         {
             // Display the sources
-            cout << locationNames.at(i) << "(" << i << "):" << endl;
+            cout << locationNames.at(i) << " (" << i << "):" << endl;
     
             // Display all the destinations and weights
             for (Pair v : adjList[i])
             {
-                cout << " --> ";
-                cout << "Pathway to " << locationNames.at(i) << "(" << v.first << ", " << v.second << ") ";
+                cout << " --> Pathway to ";
+                cout << locationNames.at(v.first) << " (" << v.first << ") - (" << v.second << "m) ";
+                cout << endl;
             }
-            cout << endl;
         }
+
+        // Enter a new line
+        cout << endl;
     }
 
     /*
