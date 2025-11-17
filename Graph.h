@@ -8,6 +8,7 @@
 #include <vector>
 #include <queue>
 #include <stack>
+#include <string>
 #include "Edge.h"
 using namespace std;
 
@@ -23,6 +24,13 @@ class Graph
 public:
     // Create a vector of vectors of Pairs to represent an adjacency list
     vector<vector<Pair>> adjList; // The list of adjacent vertices of the vertices
+
+    // Create a vector to store the vertices location names
+    vector<string> locations = {
+        "Main Gate",
+        "Visitor Center",
+        "T-Rex Paddock",
+    };
 
     // Graph Constructor
     Graph(vector<Edge> const &edges)
