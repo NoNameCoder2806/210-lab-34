@@ -209,7 +209,15 @@ public:
     }
 
     /*
-        shortestPath()
-        
+        djikstra()
+        Find the shortest path from a source to a destination
+        Arguments:
+            - 
+        Return: none
     */
+    vector<int> djikstra(const vector<vector<Pair>>& adjList, int source, int destination)
+    {
+        // Create and use a priority queue to store the distances
+        priority_queue<pair<int, int>, vector<vector<pair<int, int>>>, 
+    }
 };
