@@ -215,7 +215,7 @@ public:
             - 
         Return: none
     */
-    vector<int> djikstra(const vector<vector<Pair>>& adjList, int source, int destination)
+    vector<int> djikstra(const vector<vector<Pair>>& adjList, int source)
     {
         // Create and use a priority queue to store the distances
         // The first argument stores the data type
@@ -224,8 +224,8 @@ public:
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
         // Create 2 vectors to store the distances and parent
-        vector dist(SIZE, 0);             // Distances between the source and all other vertices
-        vector parent(SIZE, -1);          // 
+        vector dist(SIZE, INT_MAX);          // Distances between source and all other vertices
+        vector parent(SIZE, -1);             // The parent of the vertices (shortest path)
 
         // Add the first element into the priority queue
         pq.push({0, source});          // Distance, destination
@@ -257,10 +257,17 @@ public:
                 // Let d = the distance between the source to the parent vertex + w
                 int d = top.first + w;
 
-                
-                // Add the pair into the priority queue
-                pq.push({d, adjList.at(top.second).at(i).first});
+                // Update the distance if this new distance is smaller
+                if(d < dist[v])
+                {
+                    dist[v] = d;                     // Update the distance
+                    parent[v] = top.second;          // Update the parent
+                    pq.push({d, v});                 // Add the pair into the priority queue
+                }
             }
         }
+
+        // Return the distance list
+        return dist;
     }
 };
