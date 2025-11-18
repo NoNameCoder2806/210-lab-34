@@ -223,5 +223,23 @@ public:
         // The third argument specify the comparison (i.e. greater, less)
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
+        // Create 2 vectors to store the distances and parent
+        vector dist(SIZE, 0);             // Distances between the source and all other vertices
+        vector parent(SIZE, -1);          // 
+
+        // Add the first element into the priority queue
+        pq.push({0, source});          // Distance, destination
+
+        // Iterate and find all the distances
+        while (!pq.empty())
+        {
+            // Get the first element
+            pair<int, int> top = pq.top();
+            pq.pop();          // Remove the first element
+            
+            // Update the distance
+            if (dist.at(top.second) > top.first)
+            dist.at(top.second) = top.first;
+        }
     }
 };
