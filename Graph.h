@@ -238,8 +238,29 @@ public:
             pq.pop();          // Remove the first element
             
             // Update the distance
-            if (dist.at(top.second) > top.first)
-            dist.at(top.second) = top.first;
+            if (top.first > dist.at(top.second))
+            {
+                // If the distance is larger, we don't update
+                continue;
+            }
+
+            // Create a loop to add all the neighbors first
+            for (int i = 0; i < adjList.at(top.second).size(); i++)
+            {
+                // Update the distance of the neighbor compared to the source
+                // Let v be the neighbor vertex
+                int v = adjList.at(top.second).at(i).first;
+
+                // Let w be the distance between the parent vertex to the neighbor vertex
+                int w = adjList.at(top.second).at(i).second;
+
+                // Let d = the distance between the source to the parent vertex + w
+                int d = top.first + w;
+
+                
+                // Add the pair into the priority queue
+                pq.push({d, adjList.at(top.second).at(i).first});
+            }
         }
     }
 };
