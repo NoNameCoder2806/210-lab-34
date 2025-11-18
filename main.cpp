@@ -54,12 +54,15 @@ int main()
     vector<int> shortestPaths = graph.djikstra(graph.adjList, source);
 
     // Display a message
-    cout << "Shortest path from " << graph.locationNames[source] << ": " << endl;
+    cout << "Shortest path from " << graph.locationNames[source] << "(" << source << "): ";
+    cout << endl;
 
     // Display all the shortest paths
     for (int i = 0; i < shortestPaths.size(); i++)
     {
-        // 
+        // Display the distances
+        cout << "    --> " << graph.locationNames.at(i) << "(" << i << "): ";
+        cout << shortestPaths.at(i) << "m" << endl;
     }
 
     return 0;

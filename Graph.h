@@ -224,8 +224,8 @@ public:
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
         // Create 2 vectors to store the distances and parent
-        vector dist(SIZE, INT_MAX);          // Distances between source and all other vertices
-        vector parent(SIZE, -1);             // The parent of the vertices (shortest path)
+        vector<int> dist(SIZE, INT_MAX);          // Distances between source and all other vertices
+        vector<int> parent(SIZE, -1);             // The parent of the vertices (shortest path)
         // Note: the parent vector is not necessary in this lab because we're not asked to 
         // construct and output the path
 
@@ -263,9 +263,9 @@ public:
                 // Update the distance if this new distance is smaller
                 if(d < dist[v])
                 {
-                    dist[v] = d;                     // Update the distance
-                    parent[v] = top.second;          // Update the parent
-                    pq.push({d, v});                 // Add the pair into the priority queue
+                    dist.at(v) = d;                     // Update the distance
+                    parent.at(v) = top.second;          // Update the parent
+                    pq.push({d, v});                    // Add the pair into the priority queue
                 }
             }
         }
