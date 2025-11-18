@@ -218,6 +218,10 @@ public:
     vector<int> djikstra(const vector<vector<Pair>>& adjList, int source, int destination)
     {
         // Create and use a priority queue to store the distances
-        priority_queue<pair<int, int>, vector<vector<pair<int, int>>>, 
+        // The first argument stores the data type
+        // The second argument is the container that stores all the elements
+        // The third argument specify the comparison (i.e. greater, less)
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+
     }
 };
