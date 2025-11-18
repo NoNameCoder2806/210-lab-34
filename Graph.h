@@ -226,9 +226,12 @@ public:
         // Create 2 vectors to store the distances and parent
         vector dist(SIZE, INT_MAX);          // Distances between source and all other vertices
         vector parent(SIZE, -1);             // The parent of the vertices (shortest path)
+        // Note: the parent vector is not necessary in this lab because we're not asked to 
+        // construct and output the path
 
         // Add the first element into the priority queue
         pq.push({0, source});          // Distance, destination
+        dist.at(source) = 0;           // Update the distance in the dist vector
 
         // Iterate and find all the distances
         while (!pq.empty())
