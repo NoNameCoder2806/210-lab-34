@@ -49,5 +49,18 @@ int main()
     graph.bfs(start);
     cout << endl;
 
+    // Create a vector the store the shortest paths
+    int source = 0;
+    vector<int> shortestPaths = graph.djikstra(graph.adjList, source);
+
+    // Display a message
+    cout << "Shortest path from " << graph.locationNames[source] << ": " << endl;
+
+    // Display all the shortest paths
+    for (int i = 0; i < shortestPaths.size(); i++)
+    {
+        // 
+    }
+
     return 0;
 }

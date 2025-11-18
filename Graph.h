@@ -273,4 +273,8 @@ public:
         // Return the distance list
         return dist;
     }
+
+    /*
+        minimum
+    */
 };
