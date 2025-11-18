@@ -65,5 +65,8 @@ int main()
         cout << shortestPaths.at(i) << "m" << endl;
     }
 
+    // Enter a new line
+    cout << endl;
+
     return 0;
 }
