@@ -124,6 +124,8 @@ int main()
 
                 // Enter a new line
                 cout << endl;
+
+                break;
             }
 
             // Minimum Spanning Tree
@@ -137,7 +139,7 @@ int main()
                 for (int i = 0; i < mst.size(); i++)
                 {
                     // Display the Edge
-                    cout << " -->";
+                    cout << " --> ";
                     cout << "From " << graph.locationNames.at(mst.at(i).src) << " (" << mst.at(i).src << ") ";
                     cout << "To " << graph.locationNames.at(mst.at(i).dest) << " (" << mst.at(i).dest << "): ";
                     cout << mst.at(i).weight << "m" << endl;
@@ -145,6 +147,8 @@ int main()
 
                 // Enter a new line
                 cout << endl;
+
+                break;
             }
 
             // Exit
@@ -154,7 +158,7 @@ int main()
                 cout << "Thank you for using the program! Exiting..." << endl;
 
                 // Exit the main function
-                return;
+                return 0;
             }
         }
     }
@@ -175,7 +179,7 @@ void displayMenu()
     cout << "Jurassic Park Locations Network Menu:" << endl;
 
     // Display all the options
-    cout << "[1] Display Jurassic Park Locations Network" << endl;
+    cout << "[1] Jurassic Park Road Map" << endl;
     cout << "[2] Explore Park (BFS)" << endl;
     cout << "[3] Go On Deep Exploration (DFS)" << endl;
     cout << "[4] Calculate Shortest Paths From Main Gate" << endl;
