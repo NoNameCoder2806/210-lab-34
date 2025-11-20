@@ -61,7 +61,7 @@ int main()
     for (int i = 0; i < shortestPaths.size(); i++)
     {
         // Display the distances
-        cout << "    --> " << graph.locationNames.at(i) << "(" << i << "): ";
+        cout << " --> " << graph.locationNames.at(i) << "(" << i << "): ";
         cout << shortestPaths.at(i) << "m" << endl;
     }
 
@@ -75,12 +75,15 @@ int main()
     cout << "Jurassic Park Minimum Spanning Tree For All Locations:" << endl;
     for (int i = 0; i < mst.size(); i++)
     {
-        // 
+        // Display the Edge
+        cout << " -->";
         cout << "From " << graph.locationNames.at(mst.at(i).src) << " (" << mst.at(i).src << ") ";
-        cout << "To "
+        cout << "To " << graph.locationNames.at(mst.at(i).dest) << " (" << mst.at(i).dest << "): ";
+        cout << mst.at(i).weight << "m" << endl;
     }
 
-    // 
+    // Enter a new line
+    cout << endl;
 
     return 0;
 }
