@@ -293,5 +293,8 @@ public:
 
         // Create a MST vector
         vector<Edge> mst;
+
+        // Initialize UnionFind
+        UnionFind uf(SIZE);
     }
 };
