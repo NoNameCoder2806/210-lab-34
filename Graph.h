@@ -5,6 +5,7 @@
 
 // Libraries
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #include <queue>
 #include <stack>
@@ -281,6 +282,15 @@ public:
     */
     vector<int> kruskal(vector<Edge> const &edges)
     {
+        // Create another vector of Edges and copy the original vector
+        vector<Edge> vEdges = edges;
+
+        // Sort the edges so the edges with the minimum weight comes in front
+        sort(vEdges.begin(), vEdges.end(), [](Edge a, Edge b)
+        {
+            return a.weight < b.weight;
+        });
+
         // 
     }
 };
