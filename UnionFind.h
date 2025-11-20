@@ -19,5 +19,20 @@ class UnionFind
 private:
     vector<int> parent;
     vector<int> rank;
+
+public:
+    // Constructor
+    UnionFind(int n)
+    {
+        // Resize the parent and rank to hold the right size
+        parent.resize(n);
+        rank.resize(n, 0);          // Initialize all the first elements to be 0
+
+        // Initialize all the parents
+        for (int i = 0; i < n; i++)
+        {
+            parent[i] = i;
+        }
+    }
 }
 
