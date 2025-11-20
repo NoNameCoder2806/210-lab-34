@@ -210,9 +210,10 @@ public:
 
     /*
         djikstra()
-        Find the shortest path from a source to a destination
+        Find the shortest path using the Djikstra algorithm
         Arguments:
-            - 
+            - adjList: the adjacency list of the graph
+            - source: the source (starting point) of the path
         Return: none
     */
     vector<int> djikstra(const vector<vector<Pair>>& adjList, int source)
@@ -275,6 +276,11 @@ public:
     }
 
     /*
-        minimumSpanningTree()
+        kruskal()
+        Find the minimum spanning tree using the Kruskal algorithm
     */
+    vector<int> kruskal(vector<Edge> const &edges)
+    {
+        // 
+    }
 };
