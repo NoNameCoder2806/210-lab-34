@@ -11,6 +11,7 @@
 #include <stack>
 #include <string>
 #include "Edge.h"
+#include "UnionFind.h"
 using namespace std;
 
 // Constants
@@ -296,5 +297,12 @@ public:
 
         // Initialize UnionFind
         UnionFind uf(SIZE);
+
+        // Iterate through all the edges
+        for (int i = 0; i < vEdges.size(); i++)
+        {
+            // Check whether they have the same root
+            if (uf.find(vEdges.at(i).src) == uf.find())
+        }
     }
 };

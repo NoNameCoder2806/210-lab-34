@@ -53,7 +53,14 @@ public:
         return parent[x];
     }
     
-    //
+    /*
+        unionFind()
+        Attach the vertices together
+        Arguments:
+            - x: vertex x (or the sequence with root x)
+            - y: vertex y (or the sequence with root y)
+        Return: none
+    */
     void unionFind(int x, int y)
     {
         // Find the roots of the x and y vertices
@@ -70,12 +77,12 @@ public:
         // Union by rank: attach smaller tree under larger tree
         if (rank[rootX] < rank[rootY])
         {
-            // If the rank is smaller we let y be a child of the x vertex
+            // If the rank is smaller we let y root be the parent / root of the x root vertex
             parent[rootX] = rootY;
         }
         else if (rank[rootX] > rank[rootY])
         {
-            // Otherwise if rank is larger, we let x be the child of y
+            // Otherwise if rank is larger, we let x root be the parent of y root
             parent[rootY] = rootX;
         }
         else
