@@ -34,5 +34,39 @@ public:
             parent[i] = i;
         }
     }
-}
 
+    /*
+        find()
+        Find the root of the sequence / set of connected vertices
+        Arguments:
+            - x: the vertex
+        Return: an integer representing the root of the vertex
+    */
+    int find(int x)
+    {
+        // Check whether the parent is itself (the starting vertex)
+        if (parent[x] != x)
+        {
+            parent[x] = find(parent[x]);          // Recursively find the root of the root
+        }
+
+        return parent[x];
+    }
+    
+    //
+    void unionFind(int x, int y)
+    {
+        // Find the roots of the x and y vertices
+        int rootX = find(x);
+        int rootY = find(y);
+
+        // Check whether they have the same value
+        if (rootX == rootY)
+        {
+            // If they do, it means that they are already in the same set
+            return;          // Exit the function, no merge needed
+        }
+
+        // 
+    }
+};
