@@ -275,6 +275,6 @@ public:
     }
 
     /*
-        minimum
+        minimumSpanningTree()
     */
 };
