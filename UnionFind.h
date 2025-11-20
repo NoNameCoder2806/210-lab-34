@@ -67,6 +67,22 @@ public:
             return;          // Exit the function, no merge needed
         }
 
-        //
+        // Union by rank: attach smaller tree under larger tree
+        if (rank[rootX] < rank[rootY])
+        {
+            // If the rank is smaller we let y be a child of the x vertex
+            parent[rootX] = rootY;
+        }
+        else if (rank[rootX] > rank[rootY])
+        {
+            // Otherwise if rank is larger, we let x be the child of y
+            parent[rootY] = rootX;
+        }
+        else
+        {
+            // If same rank, we can pick either and increase the rank of the chosen new root
+            parent[rootY] = rootX;
+            rank[rootX]++;
+        }
     }
 };
