@@ -291,6 +291,7 @@ public:
             return a.weight < b.weight;
         });
 
-        // 
+        // Create a MST vector
+        vector<Edge> mst;
     }
 };
