@@ -67,6 +67,6 @@ public:
             return;          // Exit the function, no merge needed
         }
 
-        // 
+        //
     }
 };
