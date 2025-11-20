@@ -280,8 +280,11 @@ public:
     /*
         kruskal()
         Find the minimum spanning tree using the Kruskal algorithm
+        Arguments:
+            - edges: the vector that stores all the edges of the graph
+        Return: a vector of Edges that form the minimum spanning tree
     */
-    vector<int> kruskal(vector<Edge> const &edges)
+    vector<Edge> kruskal(vector<Edge> const &edges)
     {
         // Create another vector of Edges and copy the original vector
         vector<Edge> vEdges = edges;
@@ -301,8 +304,18 @@ public:
         // Iterate through all the edges
         for (int i = 0; i < vEdges.size(); i++)
         {
-            // Check whether they have the same root
-            if (uf.find(vEdges.at(i).src) == uf.find())
+            // Check whether they have the different root
+            if (uf.find(vEdges.at(i).src) != uf.find(vEdges.at(i).dest))
+            {
+                // Add the edge to the minimum spanning tree
+                mst.push_back(vEdges.at(i));
+
+                // If they do, connect them
+                uf.unionFind(vEdges.at(i).src, vEdges.at(i).dest);
+            }
+            // Otherwise we ignore because it would form a cycle
         }
+
+        return mst;
     }
 };

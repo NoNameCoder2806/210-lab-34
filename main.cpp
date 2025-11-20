@@ -68,5 +68,19 @@ int main()
     // Enter a new line
     cout << endl;
 
+    // Create a new vector to store the minimum spanning tree
+    vector<Edge> mst = graph.kruskal(edges);
+
+    // Display the minimum spanning tree
+    cout << "Jurassic Park Minimum Spanning Tree For All Locations:" << endl;
+    for (int i = 0; i < mst.size(); i++)
+    {
+        // 
+        cout << "From " << graph.locationNames.at(mst.at(i).src) << " (" << mst.at(i).src << ") ";
+        cout << "To "
+    }
+
+    // 
+
     return 0;
 }
