@@ -8,6 +8,9 @@
 #include "Graph.h"
 using namespace std;
 
+// Function prototypes
+void displayMenu();
+
 // Main() function
 int main()
 {
@@ -86,4 +89,14 @@ int main()
     cout << endl;
 
     return 0;
+}
+
+// Function implementations
+void displayMenu()
+{
+    // Display a header
+    cout << "Jurassic Park Locations Network Menu:" << endl;
+
+    // Display all the options
+    cout << "[1] "
 }
